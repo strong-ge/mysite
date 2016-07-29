@@ -1,0 +1,34 @@
+{% if blog_list.object_list and blog_list.paginator.num_pages > 1 %}
+    <div class="container">
+        <div class="row center">
+            <ul class="pagination">
+                {% if blog_list.has_previous %}
+                    <li class=" left-align">
+                        <a href="?page={{ blog_list.previous_page_number }}">
+                            <i class="material-icons ">chevron_left</i>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="disabled left-align">
+                        <a href="#!">
+                            <i class="material-icons ">chevron_left</i>
+                        </a>
+                    </li>
+                {% endif %}
+                {% if blog_list.has_next %}
+                    <li class="waves-effect right-align">
+                        <a href="?page={{ blog_list.next_page_number }}">
+                            <i class="material-icons ">chevron_right</i>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="disabled right-align">
+                        <a href="#!">
+                            <i class="material-icons ">chevron_right</i>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

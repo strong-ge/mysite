@@ -1,10 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "blog/base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block container %}
+    <div class="row ">
+        <div class="col s2" style="opacity: 0">
+            a
+        </div>
+        <div class="col s8">
+            <ul>
+                <li>
+                    <div class="section">
+                        <h4 class="center-align">{{ blog.title }}</h4>
+                        {%for tag in blog.tags.all%}
+                        <div class="chip center-align">
+                            {{tag.tag_name}}
+                        </div>
+                        {% endfor %}
+                            {{ blog.content | markdown_detail | safe }}
+{#                        {{ blog.content | custom_markdown}}#}
+                    </div>
+                    <div class="divider more"></div>
+                </li>
+            </ul>
+            <!-- 多说评论框 start -->
+            <div class="ds-thread" data-thread-key="{{blog.id}}" data-title="{{blog.title}}" data-url="www.strong-ge.com/detail/{{blog.id}}/"></div>
+            <!-- 多说评论框 end -->
+        </div>
+        <div class="col s2">
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:"strong-ge"};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+             || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+        </script>
+    <!-- 多说公共JS代码 end -->
+{% endblock %}
