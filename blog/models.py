@@ -4,6 +4,15 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 
+class Tag(models.Model):
+    """docstring for Tags"""
+    tag_name = models.CharField(max_length=20, blank=True)
+    create_time = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return self.tag_name
+
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager, self).get_queryset().filter(status='published')
@@ -19,6 +28,7 @@ class Post(models.Model):
                             unique_for_date='publish')
     author = models.ForeignKey(User,
                                related_name='blog_posts')
+    tags = models.ManyToManyField(Tag, blank=True)
     body = models.TextField()
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)

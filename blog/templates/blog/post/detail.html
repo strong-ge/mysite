@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 {% block title %}{{ post.title }}{% endblock %}
 {% block container %}
     <div class="row ">
@@ -9,20 +10,20 @@
             <ul>
                 <li>
                     <div class="section">
-                        <h4 class="center-align">{{ blog.title }}</h4>
-                        {%for tag in blog.tags.all%}
+                        <h4 class="center-align">{{ post.title }}</h4>
+                        {%for tag in post.tags.all%}
                         <div class="chip center-align">
                             {{tag.tag_name}}
                         </div>
                         {% endfor %}
-                            {{ blog.content | markdown_detail | safe }}
+                            {{ post.body | markdown_detail | safe }}
 {#                        {{ blog.content | custom_markdown}}#}
                     </div>
                     <div class="divider more"></div>
                 </li>
             </ul>
             <!-- 多说评论框 start -->
-            <div class="ds-thread" data-thread-key="{{blog.id}}" data-title="{{blog.title}}" data-url="www.strong-ge.com/detail/{{blog.id}}/"></div>
+            <div class="ds-thread" data-thread-key="{{post.id}}" data-title="{{post.title}}" data-url="www.strong-ge.com/detail/{{post.id}}/"></div>
             <!-- 多说评论框 end -->
         </div>
         <div class="col s2">

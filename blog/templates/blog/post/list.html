@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 {% block title %}Strong-ge's Blog{% endblock %}
 {% block container %}
     <div class="row ">
@@ -7,16 +8,16 @@
         </div>
         <div class="col s8">
             <ul>
-                {%for blog in blog_list%}
+                {%for blog in posts %}
                 <li>
                     <div class="section">
-                        <h4 class="center-align"><a href="/blog/detail/{{blog.id}}/">{{blog.title}}</a></h4>
+                        <h4 class="center-align"><a href="{{ blog.get_absolute_url }}">{{blog.title}}</a></h4>
                         {%for tag in blog.tags.all%}
                             <div class="chip">
                                 {{tag.tag_name}}
                             </div>
                         {%endfor%}
-                            {{ blog.content | markdown_list | safe | truncatewords_html:"30"}}
+                            {{ blog.body | markdown_list | safe | truncatewords_html:"30"}}
                         <a href="/blog/detail/{{blog.id}}" class="btn-flat waves-effect waves-purple right realMore">
                             <span class="teal-text">More</span>
                         </a>

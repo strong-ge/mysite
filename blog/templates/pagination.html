@@ -1,10 +1,10 @@
-{% if blog_list.object_list and blog_list.paginator.num_pages > 1 %}
+{% if posts.object_list and posts.paginator.num_pages > 1 %}
     <div class="container">
         <div class="row center">
             <ul class="pagination">
-                {% if blog_list.has_previous %}
+                {% if posts.has_previous %}
                     <li class=" left-align">
-                        <a href="?page={{ blog_list.previous_page_number }}">
+                        <a href="?page={{ posts.previous_page_number }}">
                             <i class="material-icons ">chevron_left</i>
                         </a>
                     </li>
@@ -15,9 +15,9 @@
                         </a>
                     </li>
                 {% endif %}
-                {% if blog_list.has_next %}
+                {% if posts.has_next %}
                     <li class="waves-effect right-align">
-                        <a href="?page={{ blog_list.next_page_number }}">
+                        <a href="?page={{ posts.next_page_number }}">
                             <i class="material-icons ">chevron_right</i>
                         </a>
                     </li>
