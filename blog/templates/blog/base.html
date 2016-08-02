@@ -15,17 +15,17 @@
     <!--导航start-->
     <nav>
         <div class="nav-wrapper #26a69a teal lighten-1">
-            <a href="/blog/list/" class="brand-logo">&nbsp;&nbsp;&nbsp;STRONG-GE</a>
+            <a href="{% url 'blog:post_list' %}" class="brand-logo">&nbsp;&nbsp;&nbsp;STRONG-GE</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="/blog/list/">Artical</a></li>
-                <li><a href="/blog/time_line/">Timelines</a></li>
-                <li><a href="/blog/about/">About</a></li>
+                <li><a href="{% url 'blog:post_list' %}">Article</a></li>
+                <li><a href="{% url 'blog:time_line' %}">Timelines</a></li>
+                <li><a href="{% url 'blog:about' %}">About</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="/blog/list/">Artical</a></li>
-                <li><a href="/blog/time_line/">Timelines</a></li>
-                <li><a href="/blog/about/">About</a></li>
+                <li><a href="{% url 'blog:post_list' %}">Artical</a></li>
+                <li><a href="{% url 'blog:time_line' %}">Timelines</a></li>
+                <li><a href="{% url 'blog:about' %}">About</a></li>
             </ul>
         </div>
     </nav>

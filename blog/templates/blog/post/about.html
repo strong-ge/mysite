@@ -1,0 +1,42 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% block title %}关于我{% endblock %}
+{% block container %}
+            <div class="row ">
+            <div class="col s2" style="opacity: 0">
+                a
+            </div>
+            <div class="col s8">
+                <ul>
+                    <li>
+                        <div class="section">
+                            <h4 class="center-align">关于本站</h4>
+                                <div id="wmd-preview" class="wmd-preview"><div class="md-section-divider"></div><div class="md-section-divider"></div><blockquote data-anchor-id="cx8q" class="white-blockquote">
+  <p>这是我的博客第二版。 <br>
+  为什么是第二版？ <br>
+  因为第一版太丑，即使这次也不怎么漂亮。 <br>
+  也许明年又改了，再说吧。 <br>
+  使用最常规的<code>Django</code>+<code>nginx</code>+<code>uwisg</code>的方式搭建，部署在DigtalOcean的Singapore节点上。</p>
+</blockquote></div>
+                        </div>
+                        <div class="divider more"></div>
+                    </li>
+                    <li>
+                        <div class="section">
+                            <h4 class="center-align">关于我</h4>
+                                <blockquote data-anchor-id="zonq" class="white-blockquote">
+  <p>15年毕业，工作一年，修过机器，在写代码 <br>
+  想去看上海大师赛～～～</p>
+</blockquote>
+                        </div>
+                        <div class="divider more"></div>
+                    </li>
+                </ul>
+                                <!-- 多说评论框 start -->
+{#    <div class="ds-thread" data-thread-key="" data-title="关于" data-url="http://www.strong-ge.com/about/"></div>#}
+<!-- 多说评论框 end -->
+            </div>
+            <div class="col s2">
+            </div>
+        </div>
+{% endblock %}

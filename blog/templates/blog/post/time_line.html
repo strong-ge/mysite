@@ -1,0 +1,33 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+{% block title %}时间轴{% endblock %}
+{% block container %}
+    <div class="timeline">
+        {% for x,y,z in date_list %}
+            <div class="timeline-event">
+                <div class="card timeline-content">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="{% static "img/1.jpg" %}">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">
+                            {{x.year}}-{{x.month}}    ({{z}})
+                            <i class="material-icons right">
+                                more_vert
+                            </i>
+                        </span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Blog List<i class="material-icons right">close</i></span>
+                        {% for b in y %}
+                            <p><a href="{{ b.get_absolute_url }}">{{ b.title }}</a></p>
+                        {% endfor %}
+                    </div>
+            </div>
+            <div class="timeline-badge blue white-text">
+                <i class="material-icons">language</i>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+{% endblock %}

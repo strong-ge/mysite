@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from function import get_blog_by_month
 
 
 def post_list(request):
@@ -27,3 +28,13 @@ def post_detail(request, year, month, day, post):
     return render(request,
                   'blog/post/detail.html',
                   {'post': post})
+
+
+def time_line(request):
+    date_list = get_blog_by_month()
+    return render(request, 'blog/post/time_line.html', {'date_list': date_list})
+
+
+def about(request):
+    #   TODO
+    return render(request, 'blog/post/about.html')

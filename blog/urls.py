@@ -7,4 +7,6 @@ urlpatterns = [
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/'r'(?P<post>[-\w]+)/$',
         views.post_detail,
         name='post_detail'),
+    url(r'^time_line/$', views.time_line, name='time_line'),
+    url(r'^about/$', views.about, name='about'),
 ]
