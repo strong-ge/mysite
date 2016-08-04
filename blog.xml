@@ -1,6 +1,7 @@
  <uwsgi>
      <socket>:8002</socket>
-     <chdir>/home/pi/myproject/mysite</chdir>
+{#     <chdir>/home/pi/myproject/mysite</chdir>#}
+     <chdir>/home/mysite</chdir>
      <module>mysite.wsgi</module>
      <processes>4</processes>
      <daemonize>uwsgi.log</daemonize>
