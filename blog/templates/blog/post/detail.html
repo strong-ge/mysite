@@ -1,6 +1,31 @@
 {% extends "blog/base.html" %}
 {% load blog_tags %}
 {% block title %}{{ post.title }}{% endblock %}
+{% block style %}
+    .highlight{
+    {# 代码超框显示滚动条#}
+        overflow:auto;
+        padding: 6.5px;
+        border-radius: 8px;
+    }
+    .highlight td{
+        {#    取消与material css的冲突        #}
+        padding: 0px 0px;
+    }
+    code{
+        font-size: 85%;
+        padding: 2px 4px;
+        border-radius: 3px;
+        background-color: #d9d9d9;
+        white-space: pre-wrap;
+    }
+    strong {
+        font-weight: 800;
+    }
+    img {
+        width: 100%;
+    }
+{% endblock %}
 {% block container %}
     <div class="row ">
         <div class="col s2" style="opacity: 0">
