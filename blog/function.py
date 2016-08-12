@@ -16,4 +16,4 @@ def get_blog_by_month():
         date_list[i].append(post_date[i])
         date_list[i].append(temp_article)
         date_list[i].append(temp_num)
-    return date_list
+    return reversed(date_list)
