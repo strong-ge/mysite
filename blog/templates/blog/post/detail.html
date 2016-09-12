@@ -22,9 +22,6 @@
     strong {
         font-weight: 800;
     }
-    img {
-        width: 100%;
-    }
 {% endblock %}
 {% block container %}
     <div class="row ">
@@ -34,7 +31,7 @@
         <div class="col s8">
             <ul>
                 <li>
-                    <div class="section">
+                    <div class="section" >
                         <h4 class="center-align">{{ post.title }}</h4>
                         {%for tag in post.tags.all%}
                         <div class="chip center-align">
